@@ -2,7 +2,7 @@ import numpy as np
 
 
 class KalmanFilter:
-    def __init__(self, dt, theta, mu, sigma):
+    def __init__(self, dt, theta, mu, sigma, R=0.0001):
         """
         Initialize the filter parameters based on the OU Process derivation.
 
@@ -39,7 +39,7 @@ class KalmanFilter:
 
         # R: Measurement Noise (Sensor Error)
         # For now, we fix this. Later, MLE will solve it.
-        self.R = 0.001
+        self.R = R
 
     def predict(self):
         """
